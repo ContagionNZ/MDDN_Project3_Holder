@@ -36,7 +36,21 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageButton"
-        android:layout_marginTop="24dp"
-        app:layout_constraintHorizontal_bias="0.502" />
+        android:layout_marginTop="24dp" />
+
+    <EditText
+        android:id="@+id/enterIP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColorHint="@android:color/background_light"
+        android:hint="Enter IP Address"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageButton"
+        android:layout_marginTop="552dp" /> />
 
 </android.support.constraint.ConstraintLayout>

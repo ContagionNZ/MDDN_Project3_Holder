@@ -2,6 +2,7 @@ package com.example.steven.mddnproject3;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 public class ConfirmActivity extends AppCompatActivity {
 
@@ -10,4 +11,6 @@ public class ConfirmActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm);
     }
+
+
 }

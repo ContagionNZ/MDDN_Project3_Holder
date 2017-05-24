@@ -5,6 +5,7 @@ package com.example.steven.mddnproject3;
  */
 
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,6 +19,9 @@ public class Tab3Total extends Fragment{
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.tab3total, container, false);
         return rootView;
+
+
     }
+
 
 }

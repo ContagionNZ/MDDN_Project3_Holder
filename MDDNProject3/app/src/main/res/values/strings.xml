@@ -8,4 +8,5 @@
     <string name="buttom_adding">Add</string>
     <string name="button_submit">Submint</string>
     <string name="button_clear">Clear</string>
+    <string name="confirmbutton">Submit</string>
 </resources>

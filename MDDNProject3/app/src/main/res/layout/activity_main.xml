@@ -9,8 +9,8 @@
 
     <ImageButton
         android:id="@+id/imageButton"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:adjustViewBounds="false"
         android:background="@android:color/background_dark"
         android:cropToPadding="false"
@@ -22,13 +22,13 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@mipmap/logo_1" />
+        app:srcCompat="@mipmap/logo2" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tab To Order"
+        android:text="Tab Logo To Order"
         android:textAlignment="textStart"
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
@@ -36,6 +36,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageButton"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="24dp"
+        app:layout_constraintHorizontal_bias="0.502" />
 
 </android.support.constraint.ConstraintLayout>

@@ -5,4 +5,7 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_main_menu">MainMenuActivity</string>
     <string name="button_main">Send</string>
+    <string name="buttom_adding">Add</string>
+    <string name="button_submit">Submint</string>
+    <string name="button_clear">Clear</string>
 </resources>

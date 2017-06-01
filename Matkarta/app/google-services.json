@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "807007008448",
+    "firebase_url": "https://matskort-235a9.firebaseio.com",
+    "project_id": "matskort-235a9",
+    "storage_bucket": "matskort-235a9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:807007008448:android:de2563ae5fdc9b30",
+        "android_client_info": {
+          "package_name": "com.example.steven.matkarta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "807007008448-jgmupeqcbs5f4t1nlv0ftev4g4dnc25a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.steven.matkarta",
+            "certificate_hash": "2a460d7c386104938a4bcddc96cf57409dea4f45"
+          }
+        },
+        {
+          "client_id": "807007008448-s43l5d3f2l9bnkcjhf07ksd4dse9dno0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-CXenx1kWAexcRdfS_lhMWmOZ_lAu2tI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "807007008448-s43l5d3f2l9bnkcjhf07ksd4dse9dno0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

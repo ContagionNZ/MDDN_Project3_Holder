@@ -58,16 +58,17 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="24dp"
+        android:layout_width="35dp"
         android:layout_height="25dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="0dp"
         android:text="0"
         android:textAlignment="center"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toRightOf="@+id/imageButton3"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteY="52dp"
         app:layout_constraintRight_toLeftOf="@+id/imageButton2"
-        tools:layout_editor_absoluteY="52dp" />
+        android:layout_marginRight="0dp"
+        app:layout_constraintLeft_toRightOf="@+id/imageButton3"
+        android:layout_marginLeft="0dp" />
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -78,4 +79,32 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:srcCompat="@drawable/minius_origami" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@android:color/background_light"
+        android:elevation="10dp"
+        android:text="Order"
+        android:textColor="#c9b47f"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:background="@color/common_google_signin_btn_text_dark_default"
+        android:elevation="10dp"
+        android:text="Clear"
+        android:textColor="#c9b47f"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
 </android.support.constraint.ConstraintLayout>

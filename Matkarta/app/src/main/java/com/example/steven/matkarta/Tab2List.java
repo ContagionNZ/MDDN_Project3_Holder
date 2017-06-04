@@ -38,6 +38,7 @@ public class Tab2List extends Fragment{
     private ListView restrauntNames;
     HashMap<String, String> response = new HashMap<String, String>();
     ArrayAdapter<String> adapter;
+    ArrayList<String> names = new ArrayList<String>();
     Context context;
 
     @Override
@@ -56,7 +57,7 @@ public class Tab2List extends Fragment{
                 System.out.println("ID: " + id);
                 System.out.println("--------------------------------------------------------------");
                 Intent intent = new Intent(getContext(), RestaurantSplashActivity.class);
-                intent.putExtra("Restaurant_ID", id);
+                intent.putExtra("Restaurant_ID", names.get(position));
                 startActivity(intent);
             }
         });
@@ -70,7 +71,7 @@ public class Tab2List extends Fragment{
 //                System.out.println(restrauntNames);
 //                System.out.println(context);
 //                System.out.println("--------------------------------------------------------------");
-                ArrayList<String> names = new ArrayList<String>(response.keySet());
+                names = new ArrayList<String>(response.keySet());
                 adapter = new ArrayAdapter<String>(context, R.layout.list_button, names);
 
                 restrauntNames.setAdapter(adapter);

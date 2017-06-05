@@ -19,6 +19,9 @@ android {
     }
 }
 
+resValue "string", "google_maps_key",
+        (project.findProperty("GOOGLE_MAPS_API_KEY") ?: "")
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     apply plugin: 'com.google.gms.google-services'
@@ -29,6 +32,7 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:25.3.1'
     compile 'com.google.firebase:firebase-database:9.2.1'
+
     testCompile 'junit:junit:4.12'
 }
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.steven.matkarta.RestaurantSplashActivity"
-    android:background="@drawable/parchment_large">
+    android:background="@drawable/parchment">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

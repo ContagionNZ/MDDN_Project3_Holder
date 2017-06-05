@@ -18,8 +18,34 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.TextView;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
-public class MapActivity extends AppCompatActivity {
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
+public class MapActivity extends AppCompatActivity
+    implements OnMapReadyCallback {
+
+
+
+
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        // Add a marker in Sydney, Australia,
+        // and move the map's camera to the same location.
+        LatLng sydney = new LatLng(-33.852, 151.211);
+        googleMap.addMarker(new MarkerOptions().position(sydney)
+                .title("Marker in Sydney"));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+    }
+
+
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -65,6 +91,7 @@ public class MapActivity extends AppCompatActivity {
         });
 
     }
+
 
 
     @Override
@@ -131,4 +158,5 @@ public class MapActivity extends AppCompatActivity {
             return null;
         }
     }
+
 }

@@ -31,32 +31,32 @@ public class RestaurantSplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_restaurant_splash);
+
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
-
-        splashMenuButton = (ImageButton) findViewById(R.id.splashMenuButton);
-
-        splashMenuButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(RestaurantSplashActivity.this, "It Works", Toast.LENGTH_LONG).show();
-            }
-
-
-
-
-        });
+//
+//        splashMenuButton = (ImageButton) findViewById(R.id.splashMenuButton);
+//        System.out.println(splashMenuButton);
+//        splashMenuButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(RestaurantSplashActivity.this, "It Works", Toast.LENGTH_LONG).show();
+//            }
+//
+//
+//
+//
+//        });
 
 
     }

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.steven.matkarta.RestaurantSplashActivity">
+    tools:context="com.example.steven.matkarta.RestaurantSplashActivity"
+    android:background="@color/common_google_signin_btn_text_light">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -25,8 +26,11 @@
 
     <ImageButton
         android:id="@+id/splashMenuButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/test" />
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:adjustViewBounds="false"
+        android:background="@android:color/transparent"
+        app:srcCompat="@drawable/origamilogo" />
 
 </android.support.design.widget.CoordinatorLayout>

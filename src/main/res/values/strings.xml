@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">" Matkarta"</string>
+    <string name="title_activity_map">MapActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_restaurant_splash">RestaurantSplashActivity</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="button_main">Send</string>
+</resources>

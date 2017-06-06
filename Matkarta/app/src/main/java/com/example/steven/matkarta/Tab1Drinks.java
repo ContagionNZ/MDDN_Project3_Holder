@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -37,8 +38,8 @@ public class Tab1Drinks extends Fragment{
     ArrayAdapter<String> adapter2;
     ArrayList<String> names = new ArrayList<String>();
     ArrayList<String> prices = new ArrayList<String>();
-    ListView drinkNames;
-    ListView drinkPrices;
+    LinearLayout drinkNames;
+    LinearLayout drinkPrices;
     Context context;
 
     @Override
@@ -46,8 +47,8 @@ public class Tab1Drinks extends Fragment{
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.tab1drinks, container, false);
         context = this.getContext();
-        drinkNames = (ListView) rootView.findViewById(R.id.drinkNames);
-        drinkPrices = (ListView) rootView.findViewById(R.id.drinkPrices);
+        drinkNames = (LinearLayout) rootView.findViewById(R.id.drinkNames);
+        drinkPrices = (LinearLayout) rootView.findViewById(R.id.drinkPrices);
         Intent intent = getActivity().getIntent();
         String restaurantName = intent.getStringExtra("Restaurant_ID");
         System.out.println(restaurantName + "_Menu");
@@ -62,13 +63,16 @@ public class Tab1Drinks extends Fragment{
                 prices = new ArrayList<String>(drinks.values());
 //                adapter = new ArrayAdapter<String>(context, R.layout.list_button, names);
                 System.out.println("----------------------------------------------");
-                adapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, names);
-                adapter2 = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, prices);
+                System.out.println("Number of Drinks: " + drinks.size());
                 System.out.println("----------------------------------------------");
-                drinkNames.setAdapter(adapter);
-                drinkPrices.setAdapter(adapter2);
-                adapter.notifyDataSetChanged();
-                adapter2.notifyDataSetChanged();
+                for(String s : drinks.keySet()){
+                    TextView drinkName = new TextView(context);
+                    drinkName.setText(s);
+                    TextView drinkPrice = new TextView(context);
+                    drinkPrice.setText(drinks.get(s));
+                    drinkNames.addView(drinkName);
+                    drinkPrices.addView(drinkPrice);
+                }
 
             }
 

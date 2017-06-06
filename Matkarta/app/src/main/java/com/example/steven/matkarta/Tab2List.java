@@ -50,27 +50,19 @@ public class Tab2List extends Fragment{
         restrauntNames.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                System.out.println("--------------------------------------------------------------");
-                System.out.println("Parent: " + parent);
-                System.out.println("View: " + view);
-                System.out.println("Position: " + position);
-                System.out.println("ID: " + id);
-                System.out.println("--------------------------------------------------------------");
+
                 Intent intent = new Intent(getContext(), RestaurantSplashActivity.class);
                 intent.putExtra("Restaurant_ID", names.get(position));
                 startActivity(intent);
+
             }
         });
+
         listReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 GenericTypeIndicator<HashMap<String,String>> t = new GenericTypeIndicator<HashMap<String, String>>() {};
                 response = dataSnapshot.getValue(t);
-//                System.out.println("--------------------------------------------------------------");
-//                System.out.println(response);
-//                System.out.println(restrauntNames);
-//                System.out.println(context);
-//                System.out.println("--------------------------------------------------------------");
                 names = new ArrayList<String>(response.keySet());
                 adapter = new ArrayAdapter<String>(context, R.layout.list_button, names);
 

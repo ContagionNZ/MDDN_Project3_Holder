@@ -2,6 +2,8 @@ package com.example.steven.matkarta;
 
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -27,7 +29,7 @@ import android.widget.Toast;
 public class RestaurantSplashActivity extends AppCompatActivity {
 
     ImageButton splashMenuButton;
-
+    Context context = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,18 +47,22 @@ public class RestaurantSplashActivity extends AppCompatActivity {
 
 
 //
-//        splashMenuButton = (ImageButton) findViewById(R.id.splashMenuButton);
-//        System.out.println(splashMenuButton);
-//        splashMenuButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(RestaurantSplashActivity.this, "It Works", Toast.LENGTH_LONG).show();
-//            }
-//
-//
-//
-//
-//        });
+        splashMenuButton = (ImageButton) findViewById(R.id.splashMenuButton);
+        System.out.println(splashMenuButton);
+        splashMenuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent oldIntent = getIntent();
+                Intent intent = new Intent(context, MenuActivity.class);
+                System.out.println("Intent: " + intent);
+                intent.putExtra("Restaurant_ID", oldIntent.getStringExtra("Restaurant_ID"));
+                startActivity(intent);
+            }
+
+
+
+
+        });
 
 
     }

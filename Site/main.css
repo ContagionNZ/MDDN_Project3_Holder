@@ -1,0 +1,21 @@
+.container{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	width: 25vw;
+	justify-content: center;
+
+}
+.item{
+	background-color: white;
+	width: 25vw;
+	margin-left: 8vw;
+	margin-bottom: 2vw;
+	height: 5vh;
+	padding-left: 2vw;
+}
+
+#bordered{
+	border: solid;
+	border-color: black;
+}

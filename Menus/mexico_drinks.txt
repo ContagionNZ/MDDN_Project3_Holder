@@ -1,0 +1,34 @@
+Chelada 				  10
+Paloma 					  10
+Bloody Maria	 		  	  12 
+Mezcal Mai Tai 			  	  14
+
+Espolon					  20
+1800 Blanco				  25
+Fortaleza				  40
+
+Cartel					  8
+Pacifico				  9
+Corona					  9
+Negra Modelo			  	  10
+Dos Equis Amber			  	  11
+Bohemia					  12
+Brothers Mexican Lager	  		  11
+Panhead Supercharger APA  		  11
+Emersons Bookbinder Ale   		  12
+2Stoke					  8	
+Isaac’s Cider			  	  10
+
+Cold Brew Coffee		  	  5
+Sparkling Water			  	  5
+Juice					  5
+Coca-Cola / Coke Zero 	  		  5
+
+White Cola 				  5
+Passionfruit & Lemongrass 		  5 
+Mango & Mint 			  	  5 
+Citrus & Ginger Fresca	  		  5
+Lemonade				  5
+Grapefruit				  5
+Cherry & Watermelon		  	  5
+Coriander & Lime Fresca	  	  5

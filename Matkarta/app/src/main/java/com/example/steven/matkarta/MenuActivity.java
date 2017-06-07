@@ -21,27 +21,48 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.SupportMapFragment;
 
-public class MenuActivity extends AppCompatActivity {
+public class MenuActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     /////////// Google Maps Start //////////////
-    GoogleMap mGooglemap; //Creates Google Map Object
+    GoogleMap mGoogleMap; //Creates Google Map Object
 
-    public boolean googleServicesAvailable(){
+    public boolean googleServicesAvailable() {
+        //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        // Create the adapter that will return a fragment for each of the three
+        // primary sections of the activity.
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+
+        // Set up the ViewPager with the sections adapter.
+        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager.setAdapter(mSectionsPagerAdapter);
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(mViewPager);
+
+
         GoogleApiAvailability api = GoogleApiAvailability.getInstance();
         int isAvailable = api.isGooglePlayServicesAvailable(this);
-        if(isAvailable == ConnectionResult.SUCCESS){
+        if (isAvailable == ConnectionResult.SUCCESS) {
             return true;
-        }else if(api.isUserResolvableError(isAvailable)){
+        } else if (api.isUserResolvableError(isAvailable)) {
             Dialog dialog = api.getErrorDialog(this, isAvailable, 0);
             dialog.show();
-        }else{
+        } else {
             Toast.makeText(this, "Can't connect to play services", Toast.LENGTH_LONG).show();
         }
         return false;
@@ -66,47 +87,46 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (googleServicesAvailable()){
-            Toast.makeText(this, "Perfect", Toast.LENGTH_LONG).show();
+        if (googleServicesAvailable()) {
             setContentView(R.layout.activity_map);
+            initMap();
+            MarkerOptions options = new MarkerOptions()
+                    .title("Wellington")
+                    .position(new LatLng(-41.2865, 174.7762));
+            mGoogleMap.addMarker(options);
+
+        } else {
+            //No Google Map Layout
         }
-
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-
-        // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
-
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(mViewPager);
-
-
-
     }
 
     //Creates the Intializes and creates the Map
+    private void initMap() {
+        MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.mapFragment);
+        mapFragment.getMapAsync(this);
 
-    public void onMapReady(GoogleMap googleMap){
-        mGooglemap = googleMap;
-        goToLocationZoom(39.008224,-76.8984527, 15);
+    }
+
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mGoogleMap = googleMap;
+        // Add a marker in Sydney, Australia,
+        // and move the map's camera to the same location.
     }
 
     //Targets Area
     private void goToLocation(double lat, double lng) {
         LatLng ll = new LatLng(lat, lng);
         CameraUpdate update = CameraUpdateFactory.newLatLng(ll);
-        mGooglemap.moveCamera(update);
+        mGoogleMap.moveCamera(update);
     }
+
     //Zooms on the Area
     private void goToLocationZoom(double lat, double lng, float zoom) {
         LatLng ll = new LatLng(lat, lng);
         CameraUpdate update = CameraUpdateFactory.newLatLng(ll);
-        mGooglemap.moveCamera(update);
+        mGoogleMap.moveCamera(update);
     }
 
 

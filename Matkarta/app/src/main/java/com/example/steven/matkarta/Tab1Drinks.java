@@ -40,17 +40,19 @@ public class Tab1Drinks extends Fragment{
 
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference listReference; // = mRootRef.child("Restaurants");
+    DatabaseReference order1;
     HashMap<String, HashMap<String,String>> response = new HashMap<String, HashMap<String, String>>();
     HashMap<String, String> drinks = new HashMap<String, String>();
+    ArrayList<String>drinkList;
     ScrollView scrollView;
     LinearLayout drinkLayout;
     Context context;
+    ArrayList<TextView> counters = new ArrayList<TextView>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.tab1drinks, container, false);
-        final MergeAdapter mergeAdapter = new MergeAdapter();
+        final View rootView = inflater.inflate(R.layout.tab1drinks, container, false);
         context = this.getContext();
         scrollView = (ScrollView) rootView.findViewById(R.id.drinkScroll);
         drinkLayout = (LinearLayout) rootView.findViewById(R.id.drinkLayout);
@@ -58,6 +60,7 @@ public class Tab1Drinks extends Fragment{
         Intent intent = getActivity().getIntent();
         String restaurantName = intent.getStringExtra("Restaurant_ID");
         System.out.println(restaurantName + "_Menu");
+        order1 = mRootRef.child("Test one");
         listReference = mRootRef.child(restaurantName + "_Menu");
         listReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -66,7 +69,9 @@ public class Tab1Drinks extends Fragment{
                 response = dataSnapshot.getValue(t);
                 drinks = response.get("Drinks");
                 drinkLayout.removeAllViews();
-                for(String s : drinks.keySet()){
+                drinkList = new ArrayList<String>(drinks.keySet());
+                // this for loop reads in the drink items row by row
+                for(String s : drinkList){
                     // create linearLayout which will represent a row
                     LinearLayout linearLayout = new LinearLayout(context);
                     linearLayout.setOrientation(LinearLayout.HORIZONTAL);
@@ -105,13 +110,14 @@ public class Tab1Drinks extends Fragment{
 
                     // create the counter
                     final TextView counter = new TextView(context);
-                    counter.setInputType(InputType.TYPE_CLASS_NUMBER);
+                    //counter.setInputType(InputType.TYPE_CLASS_NUMBER);
                     counter.setText("0");
                     counter.setTextSize(20);
                     linearLayout.addView(counter);
-                    dpInPx = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 50, dm);
+                    dpInPx = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, dm);
                     counter.getLayoutParams().width = (int) dpInPx;
                     counter.setGravity(Gravity.CENTER_HORIZONTAL);
+                    counters.add(counter);
 
                     // create the plus button
                     ImageButton plusButton = new ImageButton(context);
@@ -129,7 +135,18 @@ public class Tab1Drinks extends Fragment{
                         @Override
                         public void onClick(View v) {
                             int current = Integer.parseInt(counter.getText().toString());
-                            System.out.println(current);
+                            int increment = current + 1;
+                            counter.setText(String.valueOf(increment));
+                        }
+                    });
+
+                    minusButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            int current = Integer.parseInt(counter.getText().toString());
+                            int increment = current - 1;
+                            if(increment < 0) increment = 0;
+                            counter.setText(String.valueOf(increment));
                         }
                     });
 
@@ -137,7 +154,35 @@ public class Tab1Drinks extends Fragment{
                     drinkLayout.addView(linearLayout);
                 }
 
+                Button order = (Button)rootView.findViewById(R.id.button2);
+                Button clear = (Button)rootView.findViewById(R.id.button3);
 
+                order.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        StringBuilder sb = new StringBuilder();
+                        for(int i = 0; i < counters.size(); i++){
+                            if(!(counters.get(i).getText().equals("0"))) {
+                                sb.append(drinkList.get(i) + ": " + counters.get(i).getText() + "\n");
+                            }
+
+                        }
+                        String order = sb.toString();
+                        order1.setValue(order);
+
+                    }
+                });
+
+                clear.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        System.out.println("Clear");
+                        System.out.println(counters.size());
+                        for(TextView tv : counters){
+                            tv.setText("0");
+                        }
+                    }
+                });
 
 
             }

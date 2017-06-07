@@ -5,15 +5,8 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         defaultConfig {
-            applicationId "com.example.steven.matkarta"
-            minSdkVersion 15
-            targetSdkVersion 25
-            versionCode 1
-            versionName "1.0"
-            multiDexEnabled true
-        }
         applicationId "com.example.steven.matkarta"
-        minSdkVersion 19
+        minSdkVersion 23
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -45,7 +38,13 @@ dependencies {
     testCompile 'junit:junit:4.12'
 
     compile 'com.google.android.gms:play-services-maps:9.0.0'
+    compile 'org.altbeacon:android-beacon-library:2+'
+
 }
 
 
-apply plugin: 'com.google.gms.google-services'
+repositories{
+    jcenter()
+}
+
+apply plugin: 'com.google.gms.google-services'}

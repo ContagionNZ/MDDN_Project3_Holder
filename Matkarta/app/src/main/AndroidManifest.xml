@@ -5,6 +5,9 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <permission
         android:name="com.example.steven.matkarta.permission.MAPS_RECIEVE"
@@ -57,6 +60,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.steven.matkarta.MapActivity" />
         </activity>
+        <activity
+            android:name=".RestaurantSplashActivityOrigami"
+            android:label="@string/title_activity_restaurant_splash"
+            android:parentActivityName=".MapActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.steven.matkarta.MapActivity" />
+        </activity>
         <application
             android:name="android.support.multidex.MultiDexApplication"/>
         <activity
@@ -67,6 +79,15 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.steven.matkarta.RestaurantSplashActivity" />
+        </activity>
+        <activity
+            android:name=".MenuActivityOrigami"
+            android:label=""
+            android:parentActivityName=".RestaurantSplashActivityOrigami"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.steven.matkarta.RestaurantSplashActivityOrigami" />
         </activity>
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version"/>

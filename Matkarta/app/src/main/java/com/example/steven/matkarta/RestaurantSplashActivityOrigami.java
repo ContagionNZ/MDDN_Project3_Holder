@@ -26,14 +26,14 @@ import android.widget.TextView;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-public class RestaurantSplashActivity extends AppCompatActivity {
+public class RestaurantSplashActivityOrigami extends AppCompatActivity {
 
     ImageButton splashMenuButton;
     Context context = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_restaurant_splash);
+        setContentView(R.layout.activity_restaurant_splash_origami);
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +53,7 @@ public class RestaurantSplashActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent oldIntent = getIntent();
-                Intent intent = new Intent(context, MenuActivity.class);
+                Intent intent = new Intent(context, MenuActivityOrigami.class);
                 System.out.println("Intent: " + intent);
                 intent.putExtra("Restaurant_ID", oldIntent.getStringExtra("Restaurant_ID"));
                 startActivity(intent);

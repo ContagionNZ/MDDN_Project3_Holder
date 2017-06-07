@@ -31,7 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Tab2Food extends Fragment{
+public class Tab2FoodOrigami extends Fragment{
 
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference listReference; // = mRootRef.child("Restaurants");
@@ -47,7 +47,7 @@ public class Tab2Food extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final View rootView = inflater.inflate(R.layout.tab2food, container, false);
+        final View rootView = inflater.inflate(R.layout.tab2foodorigami, container, false);
 
         context = this.getContext();
         scrollView = (ScrollView) rootView.findViewById(R.id.drinkScroll);

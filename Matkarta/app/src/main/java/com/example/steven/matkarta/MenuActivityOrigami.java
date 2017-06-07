@@ -58,7 +58,6 @@ public class MenuActivityOrigami extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (googleServicesAvailable()){
-            Toast.makeText(this, "Perfect", Toast.LENGTH_LONG).show();
             setContentView(R.layout.activity_menu_origami);
         }
 

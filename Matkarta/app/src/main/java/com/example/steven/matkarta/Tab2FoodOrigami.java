@@ -20,6 +20,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -95,7 +96,7 @@ public class Tab2FoodOrigami extends Fragment{
 
                     // create the minus button
                     ImageButton minusButton = new ImageButton(context);
-                    minusButton.setImageResource(R.drawable.minius_mexico);
+                    minusButton.setImageResource(R.drawable.minius_origami);
                     minusButton.setBackgroundResource(0);
                     linearLayout.addView(minusButton);
                     dpInPx = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 30, dm);
@@ -117,7 +118,7 @@ public class Tab2FoodOrigami extends Fragment{
 
                     // create the plus button
                     ImageButton plusButton = new ImageButton(context);
-                    plusButton.setImageResource(R.drawable.add_mexico);
+                    plusButton.setImageResource(R.drawable.add_origami);
                     plusButton.setBackgroundResource(0);
                     linearLayout.addView(plusButton);
                     dpInPx = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 30, dm);
@@ -165,7 +166,14 @@ public class Tab2FoodOrigami extends Fragment{
                         }
                         System.out.println("ORDER!!!!!");
                         String order = sb.toString();
-                        order1.setValue(order);
+                        if(MainActivity.hasSeenBeacon){
+                            order1.setValue(order);
+                            Toast t = Toast.makeText(context, "Order Sent", Toast.LENGTH_SHORT);
+                            t.show();
+                        }else{
+                            Toast t = Toast.makeText(context, "You need to be instore to order", Toast.LENGTH_SHORT);
+                            t.show();
+                        }
 
                     }
                 });

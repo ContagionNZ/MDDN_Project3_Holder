@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements BeaconConsumer{
     BeaconManager beaconManager;
     BackgroundPowerSaver backgroundPowerSaver;
     private final static String ALTBEACON_LAYOUT = "m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-25,d:25-25";
-
+    public static boolean hasSeenBeacon = false;
 
 
 
@@ -46,6 +46,10 @@ public class MainActivity extends AppCompatActivity implements BeaconConsumer{
         beaconManager.bind(this);
     }
 
+    public void sendMessage(View view){
+        Intent intent = new Intent(this, MapActivity.class);
+        startActivity(intent);
+    }
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -79,7 +83,9 @@ public class MainActivity extends AppCompatActivity implements BeaconConsumer{
         beaconManager.setRangeNotifier(new RangeNotifier() {
             @Override
             public void didRangeBeaconsInRegion(final Collection<Beacon> rangedBeacons, Region region) {
-                System.out.println("=)+++++++++++++++++++++++");
+                System.out.println(rangedBeacons.size() + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                if(rangedBeacons.size() > 0) hasSeenBeacon = true;
+
             }
         });
 

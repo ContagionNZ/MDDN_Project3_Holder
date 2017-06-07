@@ -50,8 +50,31 @@ public class Tab2List extends Fragment{
         restrauntNames.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = null;
+                if(names.get(position).equals("Mexico")) {
+                    intent = new Intent(getContext(), RestaurantSplashActivity.class);
+                }else{
+                    intent = new Intent(getContext(), RestaurantSplashActivityOrigami.class);
+                    System.out.println("Loading ORIGMAMI");
+                    System.out.println("Loading ORIGMAMI");
+                    System.out.println("Loading ORIGMAMI");
+                    System.out.println("Loading ORIGMAMI");
+                    System.out.println("Loading ORIGMAMI");
+                    System.out.println("Loading ORIGMAMI");
+                    System.out.println("Loading ORIGMAMI");
+                    System.out.println("Loading ORIGMAMI");
+                    System.out.println("Loading ORIGMAMI");
+                    System.out.println("Loading ORIGMAMI");
+                    System.out.println("Loading ORIGMAMI");
+                    System.out.println("Loading ORIGMAMI");
+                    System.out.println("Loading ORIGMAMI");
+                    System.out.println("Loading ORIGMAMI");
+                    System.out.println("Loading ORIGMAMI");
+                    System.out.println("Loading ORIGMAMI");
+                    System.out.println("Loading ORIGMAMI");
+                    System.out.println("Loading ORIGMAMI");
 
-                Intent intent = new Intent(getContext(), RestaurantSplashActivity.class);
+                }
                 intent.putExtra("Restaurant_ID", names.get(position));
                 startActivity(intent);
 

@@ -3,10 +3,13 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Matkarta.iml" filepath="$PROJECT_DIR$/Matkarta.iml" />
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/Matkarta.iml" filepath="$PROJECT_DIR$/Matkarta.iml" />
       <module fileurl="file://$PROJECT_DIR$/Matkarta.iml" filepath="$PROJECT_DIR$/Matkarta.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+=======
+>>>>>>> Ashton2
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

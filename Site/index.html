@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SomethingGood</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link href="https://fonts.googleapis.com/css?family=Neuton|Volkhov:400,700" rel="stylesheet">
+</head>
+<body>
+<div class="Container">
+	<div class="item">
+		<h1 class="title">Matskort</h1>
+		<h2 class="subTitle">Ordering</h2>
+	</div>
+</div>
+
+<div class="Container">
+	<div class="item" id="bordered">
+		<p class="main-text" id="fireText">Order #2</p>
+		<button id="buttonOne" type="button" onclick="doFunction();">Clear Order</button>
+	</div>
+	<div class="item" id="bordered">
+		<p  class="main-text" id="fireTextTwo">Order #2</p>
+		<button id="buttonOne" type="button" onclick="doFunctionTwo();">Clear Order</button>
+	</div>
+</div>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCiMCmJHWyrl53jPGTEhYEZy_r0joj_HLs",
+    authDomain: "matskort-235a9.firebaseapp.com",
+    databaseURL: "https://matskort-235a9.firebaseio.com",
+    projectId: "matskort-235a9",
+    storageBucket: "matskort-235a9.appspot.com",
+    messagingSenderId: "807007008448"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="main.js" ></script>
+
+</body>
+</html>

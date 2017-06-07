@@ -32,7 +32,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Tab2Food extends Fragment{
+public class Tab2FoodOrigami extends Fragment{
 
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference listReference; // = mRootRef.child("Restaurants");
@@ -48,7 +48,7 @@ public class Tab2Food extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final View rootView = inflater.inflate(R.layout.tab2food, container, false);
+        final View rootView = inflater.inflate(R.layout.tab2foodorigami, container, false);
 
         context = this.getContext();
         scrollView = (ScrollView) rootView.findViewById(R.id.drinkScroll);
@@ -96,7 +96,7 @@ public class Tab2Food extends Fragment{
 
                     // create the minus button
                     ImageButton minusButton = new ImageButton(context);
-                    minusButton.setImageResource(R.drawable.minius_mexico);
+                    minusButton.setImageResource(R.drawable.minius_origami);
                     minusButton.setBackgroundResource(0);
                     linearLayout.addView(minusButton);
                     dpInPx = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 30, dm);
@@ -118,7 +118,7 @@ public class Tab2Food extends Fragment{
 
                     // create the plus button
                     ImageButton plusButton = new ImageButton(context);
-                    plusButton.setImageResource(R.drawable.add_mexico);
+                    plusButton.setImageResource(R.drawable.add_origami);
                     plusButton.setBackgroundResource(0);
                     linearLayout.addView(plusButton);
                     dpInPx = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 30, dm);

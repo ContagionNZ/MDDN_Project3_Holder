@@ -50,5 +50,24 @@
 	border-color: black;
 	background-color: white;
 	font-size: 0.75em;
-	font-weight: bold; 
+	font-weight: bold;
+	cursor: pointer;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); 
 }
+
+#buttonOne:hover {background-color: #C3C9C5}
+
+#buttonOne:active {
+  background-color: #C3C9C5;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+
+
+
+
+
+
+

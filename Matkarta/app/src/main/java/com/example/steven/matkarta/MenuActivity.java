@@ -1,5 +1,6 @@
 package com.example.steven.matkarta;
 
+import android.app.Dialog;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -18,8 +19,34 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.LatLng;
 
 public class MenuActivity extends AppCompatActivity {
+
+    /////////// Google Maps Start //////////////
+    GoogleMap mGooglemap; //Creates Google Map Object
+
+    public boolean googleServicesAvailable(){
+        GoogleApiAvailability api = GoogleApiAvailability.getInstance();
+        int isAvailable = api.isGooglePlayServicesAvailable(this);
+        if(isAvailable == ConnectionResult.SUCCESS){
+            return true;
+        }else if(api.isUserResolvableError(isAvailable)){
+            Dialog dialog = api.getErrorDialog(this, isAvailable, 0);
+            dialog.show();
+        }else{
+            Toast.makeText(this, "Can't connect to play services", Toast.LENGTH_LONG).show();
+        }
+        return false;
+    }
+
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -39,7 +66,10 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_map);
+        if (googleServicesAvailable()){
+            Toast.makeText(this, "Perfect", Toast.LENGTH_LONG).show();
+            setContentView(R.layout.activity_map);
+        }
 
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
@@ -59,6 +89,28 @@ public class MenuActivity extends AppCompatActivity {
 
     }
 
+    //Creates the Intializes and creates the Map
+
+    public void onMapReady(GoogleMap googleMap){
+        mGooglemap = googleMap;
+        goToLocationZoom(39.008224,-76.8984527, 15);
+    }
+
+    //Targets Area
+    private void goToLocation(double lat, double lng) {
+        LatLng ll = new LatLng(lat, lng);
+        CameraUpdate update = CameraUpdateFactory.newLatLng(ll);
+        mGooglemap.moveCamera(update);
+    }
+    //Zooms on the Area
+    private void goToLocationZoom(double lat, double lng, float zoom) {
+        LatLng ll = new LatLng(lat, lng);
+        CameraUpdate update = CameraUpdateFactory.newLatLng(ll);
+        mGooglemap.moveCamera(update);
+    }
+
+
+    /////////// GOOGLE MAPS END/////////////////////
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

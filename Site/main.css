@@ -10,12 +10,45 @@
 	background-color: white;
 	width: 25vw;
 	margin-left: 8vw;
+	padding-right: 2vw;
 	margin-bottom: 2vw;
-	height: 5vh;
 	padding-left: 2vw;
+	padding-right: 2vw;
 }
 
 #bordered{
 	border: solid;
 	border-color: black;
+}
+
+.container-title{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100vw;
+}
+
+.item-title{
+	width: 50vw;
+}
+.title{
+	font-family: 'Volkhov', serif;
+	font-style: bold;
+}
+
+.subTitle{
+	font-family:  'Volkhov', serif;
+}
+
+.main-text{
+	font-family: 'Neuton' ,serif;
+	font-size: 1.25em;
+}
+
+#buttonOne{
+	border: solid;
+	border-color: black;
+	background-color: white;
+	font-size: 0.75em;
+	font-weight: bold; 
 }
